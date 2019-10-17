@@ -1,5 +1,6 @@
 ﻿using System;
 using System.Text;
+using System.Threading;
 using RabbitMQ.Client;
 using RabbitMQ.Client.Events;
 
@@ -12,6 +13,7 @@ namespace consumer
             var Bank = new Bank();
             var bankId = Guid.NewGuid().ToString();
             string Host = "SomeRabbit";
+            var RngDelay = new Random();
 
             //Randomizing new bank instance
             System.Console.WriteLine("Setting up new bank instance");
@@ -45,6 +47,8 @@ namespace consumer
                         System.Console.WriteLine($"DATA RECEIVED : loanrequest for {message[1]} - messageId: {message[2]}");
                         var respbody = Encoding.UTF8.GetBytes(respmsg);
 
+                        //adding randomized delay for effect - delay from 100ms to 1500ms
+                        Thread.Sleep(RngDelay.Next(100,1500));
                         channel.BasicPublish(exchange:"", routingKey: "loanresp", body: respbody);
                     };
 
