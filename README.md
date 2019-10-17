@@ -19,7 +19,7 @@ sudo docker run -d --name SomeRabbit -p 5672:5672 -p 15673:15672 rabbitmq:3-mana
 ```
 NB. this container might need 10'ish sec. to spin up the rabbit inside it.<br>
 <br>
-In this example we will be starting 3 Banks to reply to our loan request (you can start as many as you like, remember to give them different names)
+In this example we will be starting 3 Banks to reply to our loan request (you can start as many as you like, remember to give them different names)<br>
 2) Start the 1st Bank container - in a new terminal
 ```
 sudo docker run -it --link SomeRabbit --name bankone cphjs284/si_bank HighRollersBank
