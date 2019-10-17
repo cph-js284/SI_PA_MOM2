@@ -36,7 +36,7 @@ sudo docker run -it --link SomeRabbit --name bankthree cphjs284/si_bank MaryAndJ
 ```
 sudo docker run -it --rm --link SomeRabbit --name custapp cphjs284/si_customer
 ```
-6) Enter the amount you want to received a loanoffer and wait for the 3 banks to reply. Each reply is printed to the console (mostly for debug/review) - after all offers are received the best offer is presented in the console.
+6) Enter the amount you want to receive a loanoffer for, and wait for the 3 banks to reply. Each reply is printed to the console (mostly for debug/review) - after all offers are received the best offer(lowest interest-rate) is presented in the console.
 
 # Clean up
 Removing the banks and rabbit
